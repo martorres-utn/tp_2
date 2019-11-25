@@ -66,6 +66,33 @@ tNodo * InsertaNodo(tNodo * &lista, float totalFacturado)
     return nuevo;
 }
 
+float Elimina1erNodo(tNodo *&lista)
+{
+    if(lista != nullptr)
+    {
+        float info = lista->totalFacturado;
+        tNodo * ptr = lista;
+        lista = lista->sig;
+        delete ptr;
+        return info;
+    }
+    return -1.0f;
+}
+
+void ImprimeVecLista(tProductoVenta vecProductoVenta[], int tope)
+{
+    for(int index = 0; index < tope; index++)
+    {
+        std::cout << "CodP: " << vecProductoVenta[index].info.CodP << " - Descripcion: " << vecProductoVenta[index].info.Desc << " - Precio Unitario: " << vecProductoVenta[index].info.PU << std::endl;
+
+        while(vecProductoVenta[index].lista != nullptr)
+        {
+            float facturacion = Elimina1erNodo(vecProductoVenta[index].lista);
+            std::cout << "Facturacion: " << facturacion << std::endl;
+        }
+    }
+}
+
 int main() {
     tProductoVenta vecProductoVenta[100];
     int tope = 0;
@@ -106,6 +133,9 @@ int main() {
             std::cout << "Codigo de Producto invalido, ingrese un codigo existente " << std::endl;
         }
     }
+
+    std::cout << "[Informe de ventas]" << std::endl;
+    ImprimeVecLista(vecProductoVenta, tope);
 
     return 0;
 }

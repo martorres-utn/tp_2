@@ -5,7 +5,7 @@
 void CargaProdsaVec(tProductoVenta vecProductoVenta[], int &tope) {
 
     for (tope = 0; tope < 100; tope++) {
-        tProducto nuevoProducto;// (salta como error)
+        tProducto nuevoProducto;
 
         std::cout << "[Ingreso de productos] : ingrese un codigo de producto (0 para finalizar la ejecucion): " << std::endl;
         std::cin >> nuevoProducto.CodP;

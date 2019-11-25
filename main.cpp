@@ -2,16 +2,10 @@
 #include "DataTypes.h"
 #include <bits/stdc++.h>
 
-/*void CargaProdsaVec(Prods RegP, TVP Vec[], int& top);
-void BuscaProdenVec ();
-TNodo* InsertaNodo ();
-TInfo Elimina1erNodo ();
-void ImprimeVecLista ();*/
-
 void CargaProdsaVec(tProductoVenta vecProductoVenta[], int &tope) {
 
     for (tope = 0; tope < 100; tope++) {
-        //tProducto nuevoProducto; (salta como error)
+        tProducto nuevoProducto;// (salta como error)
 
         std::cout << "Ingrese un codigo de producto (0 para finalizar la ejecucion): " << std::endl;
         std::cin >> nuevoProducto.CodP;
@@ -33,18 +27,10 @@ void CargaProdsaVec(tProductoVenta vecProductoVenta[], int &tope) {
     }
 }
 
-
-//void BuscaProdenVec(tProductoVenta vecProductoVenta[], int &tope) {
-  //  return 0;
-
-}
-
 int main() {
     tProductoVenta vecProductoVenta[100];
     int tope = 0;
     CargaProdsaVec(vecProductoVenta, tope);
-
-
 
     std::cout << "Se cargaron esta cantidad de productos: " << tope << std::endl;
 
@@ -54,13 +40,6 @@ int main() {
         std::cout << "Descripcion: " << vecProductoVenta[index].info.Desc << std::endl;
         std::cout << "Precio Unitario: " << vecProductoVenta[index].info.PU << std::endl;
     }
-
-
-
-    BuscaProdenVec(vecProductoVenta, tope);
-
-
-
 
     return 0;
 }

@@ -2,40 +2,50 @@
 #include "DataTypes.h"
 #include <bits/stdc++.h>
 
-void CargaProdsaVec(Prods RegP, TVP Vec[], int& top);
+/*void CargaProdsaVec(Prods RegP, TVP Vec[], int& top);
 void BuscaProdenVec ();
 TNodo* InsertaNodo ();
 TInfo Elimina1erNodo ();
-void ImprimeVecLista ();
+void ImprimeVecLista ();*/
 
-int main() {
-    TVP VP[100];
-    Prods RP;
-    TInfo RV;
-    int tope = 0;
+void CargaProdsaVec(tProductoVenta vecProductoVenta[], int &tope) {
 
-    std::cout << "Ingrese un codigo de producto (0 para finalizar la ejecucion): ";
-    std::cin >> RP.CodP;
+    for (tope = 0; tope < 100; tope++) {
+        tProducto nuevoProducto;
 
-    while (RP.CodP != 0){
-        std::cout << "Ingrese una descripcion: ";
-        std::cin >> RP.Desc;
-        std::cout << "Ingrese el precio unitario del producto: ";
-        std::cin >> RP.PU;
-        CargaProdsaVec(RP, VP, tope);
+        std::cout << "Ingrese un codigo de producto (0 para finalizar la ejecucion): " << std::endl;
+        std::cin >> nuevoProducto.CodP;
+
+        if(nuevoProducto.CodP > 0)
+        {
+            std::cout << "Ingrese una descripcion: " << std::endl;
+            std::cin >> nuevoProducto.Desc;
+
+            std::cout << "Ingrese el precio unitario del producto: " << std::endl;
+            std::cin >> nuevoProducto.PU;
+
+            vecProductoVenta[tope].info = nuevoProducto;
+        }
+        else
+        {
+            break;
+        }
     }
-
-
-    return 0;
 }
 
-void CargaProdsaVec(Prods RegP, TVP Vec[100], int &top) {
-    int i = 0;
-    for (i=0; i < 100; i++) {
-        Vec[i].CodP = RegP.CodP;
-        Vec[i].PU = RegP.PU;
-        Vec[i].lista = NULL;
-        //Vec[i].Desc = RegP.Desc; (lo comento ya que no me lo permite hacer el programa)
+int main() {
+    tProductoVenta vecProductoVenta[100];
+    int tope = 0;
+    CargaProdsaVec(vecProductoVenta, tope);
+
+    std::cout << "Se cargaron esta cantidad de productos: " << tope << std::endl;
+
+    for(int index = 0; index < tope; index++)
+    {
+        std::cout << "CodP: " << vecProductoVenta[index].info.CodP << std::endl;
+        std::cout << "Descripcion: " << vecProductoVenta[index].info.Desc << std::endl;
+        std::cout << "Precio Unitario: " << vecProductoVenta[index].info.PU << std::endl;
     }
-    return;
+
+    return 0;
 }

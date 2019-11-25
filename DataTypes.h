@@ -4,35 +4,28 @@
 
 #ifndef TP_2_DATATYPES_H
 #define TP_2_DATATYPES_H
-struct Prods
+struct tProducto
 {
     int CodP;
     char Desc[30];
     float PU;
 };
 
-struct TVtas
+struct tVenta
 {
     int CodP;
     int CantV;
 };
 
-struct TInfo
+struct tNodo
 {
-    float TotFact;
+    float totalFacturado;
+    tNodo* sig;
 };
 
-struct TNodo
+struct tProductoVenta
 {
-    TInfo info;
-    TNodo* sig;
-};
-
-struct TVP
-{
-    int CodP;
-    char Desc[30];
-    float PU;
-    TNodo* lista;
+    tProducto info;
+    tNodo* lista;
 };
 #endif //TP_2_DATATYPES_H

@@ -49,7 +49,7 @@ tNodo * InsertaNodo(tNodo * &lista, float totalFacturado)
     }
     else
     {
-        tNodo * ptr = lista->sig;
+        tNodo * ptr = lista;
         tNodo * ant = nullptr;
 
         while(ptr != nullptr && (nuevo->totalFacturado >= ptr->totalFacturado))
